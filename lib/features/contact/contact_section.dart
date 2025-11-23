@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/widgets/glass_button.dart';
 
@@ -24,16 +25,57 @@ class _ContactSectionState extends State<ContactSection> {
     super.dispose();
   }
 
-  void _submitForm() {
+  Future<void> _submitForm() async {
     if (_formKey.currentState!.validate()) {
-      // TODO: Implement actual submission logic (e.g., API call or mailto)
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Message sent successfully! (Simulation)'),
-          backgroundColor: AppTheme.neonCyan,
-        ),
+      final name = _nameController.text;
+      final email = _emailController.text;
+      final message = _messageController.text;
+
+      final Uri emailLaunchUri = Uri(
+        scheme: 'mailto',
+        path: 'abdorehab95@gmail.com',
+        query: _encodeQueryParameters(<String, String>{
+          'subject': 'Portfolio Contact: $name',
+          'body': 'Name: $name\nEmail: $email\n\nMessage:\n$message',
+        }),
       );
+
+      try {
+        if (await canLaunchUrl(emailLaunchUri)) {
+          await launchUrl(emailLaunchUri);
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Opening email client...'),
+                backgroundColor: AppTheme.neonCyan,
+              ),
+            );
+          }
+        } else {
+          throw 'Could not launch email client';
+        }
+      } catch (e) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'Could not open email client. Please email manually to abdorehab95@gmail.com',
+              ),
+              backgroundColor: AppTheme.neonPink,
+            ),
+          );
+        }
+      }
     }
+  }
+
+  String? _encodeQueryParameters(Map<String, String> params) {
+    return params.entries
+        .map(
+          (e) =>
+              '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}',
+        )
+        .join('&');
   }
 
   @override
