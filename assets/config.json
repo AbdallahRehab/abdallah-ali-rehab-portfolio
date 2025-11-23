@@ -1,0 +1,72 @@
+{
+  "name": "Abdallah Ali Rehab",
+  "role": "Senior Mobile Developer",
+  "tagline": "Crafting futuristic mobile experiences with Flutter.",
+  "email": "abdorehab95@gmail.com",
+  "phone": "+20 01559292997",
+  "whatsapp": "https://wa.me/2001559292997",
+  "socials": {
+    "linkedin": "https://www.linkedin.com/in/abdallah-ali-rehab-a71246153",
+    "facebook": "https://www.facebook.com/abdo.rehab.58/",
+    "twitter": "https://x.com/abdallahrehab2",
+    "github": "https://github.com/AbdallahRehab"
+  },
+  "about": {
+    "bio": "Results-driven Senior Mobile Developer with 5+ years of experience delivering high-performance Flutter applications for iOS and Android. Proven expertise in leading full-cycle development from architecture design to deployment, building enterprise-grade apps with over 3M active users.",
+    "achievements": [
+      "Led Doam (1.2M+ users)",
+      "+3M active users across projects",
+      "Improved performance by up to 60%"
+    ]
+  },
+  "skills": [
+    "Flutter",
+    "Dart",
+    "Firebase",
+    "Android",
+    "iOS",
+    "REST/API",
+    "CI/CD",
+    "Bloc",
+    "Riverpod",
+    "Clean Architecture"
+  ],
+  "projects": [
+    {
+      "name": "WalaOne",
+      "description": "Loyalty & Rewards App. Revamped app performance, achieving 60% faster load time.",
+      "tags": ["Flutter", "Loyalty", "Performance"],
+      "links": {
+        "ios": "https://apps.apple.com/us/app/walaone-%D9%88%D9%84%D8%A7%D8%A1-%D9%88%D9%86/id1543623568",
+        "android": "https://play.google.com/store/apps/details?id=com.walaplus.walaplusone&hl=ar"
+      }
+    },
+    {
+      "name": "Doam",
+      "description": "Public Sector Rewards Platform serving 1.2M+ users. Led development from scratch.",
+      "tags": ["Flutter", "Government", "Scale"],
+      "links": {
+        "ios": "https://apps.apple.com/us/app/doam-%D8%AF%D9%88%D9%85/id1635571318",
+        "android": "https://play.google.com/store/apps/details?id=com.walaplus.erfan&hl=ar"
+      }
+    },
+    {
+      "name": "WalaPlus",
+      "description": "Loyalty & Rewards App. Enhanced performance by 40% and implemented advanced security.",
+      "tags": ["Flutter", "Security", "Optimization"],
+      "links": {
+        "ios": "https://apps.apple.com/us/app/walaplus-%D9%88%D9%84%D8%A7%D8%A1-%D8%A8%D9%84%D8%B3/id1034349338",
+        "android": "https://play.google.com/store/apps/details?id=com.walaplus.androidapp&hl=ar"
+      }
+    },
+    {
+      "name": "WEDDnGO",
+      "description": "Egypt's largest wedding marketplace. Featured on Shark Tank Egypt.",
+      "tags": ["Flutter", "Marketplace", "E-commerce"],
+      "links": {
+        "ios": "https://apps.apple.com/us/app/weddngo/id1597117560",
+        "android": "https://play.google.com/store/apps/details?id=com.weddngo.client&hl=ar"
+      }
+    }
+  ]
+}
