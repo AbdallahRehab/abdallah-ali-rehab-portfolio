@@ -4,7 +4,7 @@ A futuristic, space-themed personal portfolio website built with Flutter Web, de
 
 ## 🌟 Live Demo
 
-[View Portfolio](https://AbdallahRehab.github.io/abdallah-ali-rehab-portfolio/)
+[View Portfolio](https://AbdallahRehab.github.io/)
 
 ## ✨ Features
 
@@ -73,8 +73,8 @@ lib/
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/AbdallahRehab/abdallah-ali-rehab-portfolio.git
-   cd abdallah-ali-rehab-portfolio
+   git clone https://github.com/AbdallahRehab/AbdallahRehab.github.io.git
+   cd AbdallahRehab.github.io
    ```
 
 2. **Install Dependencies**
@@ -98,7 +98,7 @@ Any push to the `main` branch will trigger a build and deploy to the `gh-pages` 
 **Manual Build:**
 
 ```bash
-flutter build web --release --base-href "/abdallah-ali-rehab-portfolio/"
+flutter build web --release --base-href "/"
 ```
 
 ### Vercel

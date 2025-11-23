@@ -2,7 +2,7 @@
 
 # Build for GitHub Pages
 echo "Building for GitHub Pages..."
-flutter build web --release --base-href "/abdallah-ali-rehab-portfolio/"
+flutter build web --release --base-href "/"
 
 echo "Build complete. To deploy, commit the 'build/web' directory to your gh-pages branch."
 echo "Example:"
