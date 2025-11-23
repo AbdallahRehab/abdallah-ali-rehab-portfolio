@@ -21,9 +21,11 @@ jobs:
 
       - run: flutter pub get
 
-      - run: flutter build web --release --base-href ${{ env.base_href }}
+      - run: flutter build web --release --base-href "./"
 
-      - run: touch build/web/.nojekyll
+      - run: |
+          touch build/web/.nojekyll
+          cp build/web/index.html build/web/404.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
