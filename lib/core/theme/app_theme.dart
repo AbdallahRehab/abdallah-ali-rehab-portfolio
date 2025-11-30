@@ -17,6 +17,43 @@ class AppTheme {
   static const Color accentCyan = Color(0xFF00B8D4);
   static const Color accentPink = Color(0xFFE91E63);
 
+  // Theme-aware color getters
+  static Color primaryColor(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark
+        ? neonCyan
+        : accentCyan;
+  }
+
+  static Color secondaryColor(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark
+        ? neonPink
+        : accentPink;
+  }
+
+  static Color textColor(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark
+        ? starlight
+        : lightText;
+  }
+
+  static Color textColorSecondary(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark
+        ? Colors.white70
+        : lightText.withOpacity(0.7);
+  }
+
+  static Color surfaceColor(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark
+        ? deepSpace
+        : lightSurface;
+  }
+
+  static Color borderColor(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark
+        ? Colors.white.withOpacity(0.1)
+        : Colors.black.withOpacity(0.1);
+  }
+
   static ThemeData get darkTheme {
     return ThemeData(
       brightness: Brightness.dark,

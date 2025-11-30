@@ -90,7 +90,7 @@ class _ContactSectionState extends State<ContactSection> {
               Text(
                 'Contact Me',
                 style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                  color: Colors.white,
+                  color: AppTheme.textColor(context),
                   fontWeight: FontWeight.bold,
                 ),
               ).animate().fadeIn().slideY(begin: 0.2, end: 0),
@@ -100,9 +100,9 @@ class _ContactSectionState extends State<ContactSection> {
               Container(
                 padding: const EdgeInsets.all(32),
                 decoration: BoxDecoration(
-                  color: AppTheme.deepSpace.withOpacity(0.5),
+                  color: AppTheme.surfaceColor(context).withOpacity(0.5),
                   borderRadius: BorderRadius.circular(24),
-                  border: Border.all(color: Colors.white.withOpacity(0.1)),
+                  border: Border.all(color: AppTheme.borderColor(context)),
                 ),
                 child: Form(
                   key: _formKey,
@@ -138,10 +138,15 @@ class _ContactSectionState extends State<ContactSection> {
                         onPressed: () {
                           launchUrl(Uri.parse('mailto:abdorehab95@gmail.com'));
                         },
-                        icon: const Icon(Icons.email, color: Colors.white70),
-                        label: const Text(
+                        icon: Icon(
+                          Icons.email,
+                          color: AppTheme.textColorSecondary(context),
+                        ),
+                        label: Text(
                           'Or email me directly at abdorehab95@gmail.com',
-                          style: TextStyle(color: Colors.white70),
+                          style: TextStyle(
+                            color: AppTheme.textColorSecondary(context),
+                          ),
                         ),
                       ),
                     ],
@@ -166,7 +171,7 @@ class _ContactSectionState extends State<ContactSection> {
       controller: controller,
       maxLines: maxLines,
       keyboardType: keyboardType,
-      style: const TextStyle(color: Colors.white),
+      style: TextStyle(color: AppTheme.textColor(context)),
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'Please enter your $label';
@@ -175,21 +180,21 @@ class _ContactSectionState extends State<ContactSection> {
       },
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: const TextStyle(color: Colors.white70),
-        prefixIcon: Icon(icon, color: AppTheme.neonCyan),
+        labelStyle: TextStyle(color: AppTheme.textColorSecondary(context)),
+        prefixIcon: Icon(icon, color: AppTheme.primaryColor(context)),
         filled: true,
-        fillColor: Colors.white.withOpacity(0.05),
+        fillColor: AppTheme.borderColor(context).withOpacity(0.5),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide.none,
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.white.withOpacity(0.1)),
+          borderSide: BorderSide(color: AppTheme.borderColor(context)),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: AppTheme.neonCyan),
+          borderSide: BorderSide(color: AppTheme.primaryColor(context)),
         ),
       ),
     );

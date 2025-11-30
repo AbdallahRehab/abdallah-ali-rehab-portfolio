@@ -20,10 +20,12 @@ class ScrollToTopButton extends StatelessWidget {
       child: isVisible
           ? FloatingActionButton(
                   onPressed: onPressed,
-                  backgroundColor: AppTheme.neonCyan,
-                  child: const Icon(
+                  backgroundColor: AppTheme.primaryColor(context),
+                  child: Icon(
                     Icons.arrow_upward_rounded,
-                    color: Colors.white,
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Colors.white,
                   ),
                 )
                 .animate()

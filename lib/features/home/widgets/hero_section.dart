@@ -142,7 +142,7 @@ class _HeroSectionState extends State<HeroSection>
               style: Theme.of(context).textTheme.displayMedium?.copyWith(
                 fontWeight: FontWeight.bold,
                 letterSpacing: 2,
-                color: Colors.white,
+                color: AppTheme.textColor(context),
               ),
               textAlign: TextAlign.center,
             ).animate().fadeIn(duration: 800.ms).slideY(begin: 0.3, end: 0),
@@ -153,7 +153,7 @@ class _HeroSectionState extends State<HeroSection>
             Text(
               'Senior Mobile Developer',
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                color: AppTheme.neonCyan,
+                color: AppTheme.primaryColor(context),
                 fontWeight: FontWeight.w500,
                 letterSpacing: 1.5,
               ),
@@ -168,7 +168,7 @@ class _HeroSectionState extends State<HeroSection>
               child: Text(
                 'Crafting futuristic mobile experiences with Flutter. Specializing in high-performance, scalable applications for iOS and Android.',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: Colors.white70,
+                  color: AppTheme.textColorSecondary(context),
                   height: 1.6,
                 ),
                 textAlign: TextAlign.center,
