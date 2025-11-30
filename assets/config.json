@@ -34,38 +34,38 @@
   "projects": [
     {
       "name": "WalaOne",
-      "description": "Loyalty & Rewards App. Revamped app performance, achieving 60% faster load time.",
+      "description": "Loyalty & Rewards App. Revamped app performance, achieving 60% faster load time; implemented caching, modular architecture, and unit testing (90% coverage).",
       "tags": ["Flutter", "Loyalty", "Performance"],
       "links": {
         "ios": "https://apps.apple.com/us/app/walaone-%D9%88%D9%84%D8%A7%D8%A1-%D9%88%D9%86/id1543623568",
-        "android": "https://play.google.com/store/apps/details?id=com.walaplus.walaplusone&hl=ar"
+        "android": "https://play.google.com/store/apps/details?id=com.walaplus.walaplusone&hl=ar&pli=1"
       }
     },
     {
       "name": "Doam",
-      "description": "Public Sector Rewards Platform serving 1.2M+ users. Led development from scratch.",
+      "description": "Public Sector Rewards Platform. Developed for public sector employees in partnership with the Ministry of Human Resources, serving 1.2M+ users. Initiated and led the development from scratch, designing the architecture, setting up CI/CD pipelines, and defining coding standards to ensure scalability and maintainability.",
       "tags": ["Flutter", "Government", "Scale"],
       "links": {
         "ios": "https://apps.apple.com/us/app/doam-%D8%AF%D9%88%D9%85/id1635571318",
-        "android": "https://play.google.com/store/apps/details?id=com.walaplus.erfan&hl=ar"
+        "android": "https://play.google.com/store/apps/details?id=com.walaplus.erfan"
       }
     },
     {
       "name": "WalaPlus",
-      "description": "Loyalty & Rewards App. Enhanced performance by 40% and implemented advanced security.",
+      "description": "Loyalty & Rewards App. Enhanced performance by implementing caching and API optimizations, achieving 40% faster load times. Implemented unit testing (Mocktail) with 60% coverage, reducing bug reports by 50%, and applied modular architecture and advanced security measures to improve maintainability and protect against reverse engineering and MiM attacks.",
       "tags": ["Flutter", "Security", "Optimization"],
       "links": {
         "ios": "https://apps.apple.com/us/app/walaplus-%D9%88%D9%84%D8%A7%D8%A1-%D8%A8%D9%84%D8%B3/id1034349338",
-        "android": "https://play.google.com/store/apps/details?id=com.walaplus.androidapp&hl=ar"
+        "android": "https://play.google.com/store/apps/details?id=com.walaplus.androidapp"
       }
     },
     {
       "name": "WEDDnGO",
-      "description": "Egypt's largest wedding marketplace. Featured on Shark Tank Egypt.",
+      "description": "Wedding Marketplace: Egypt's largest wedding marketplace; delivered booking and vendor management features; featured on Shark Tank Egypt.",
       "tags": ["Flutter", "Marketplace", "E-commerce"],
       "links": {
-        "ios": "https://apps.apple.com/us/app/weddngo/id1597117560",
-        "android": "https://play.google.com/store/apps/details?id=com.weddngo.client&hl=ar"
+        "ios": "https://weddngo.com/en/",
+        "android": "https://play.google.com/store/search?q=weddngo&c=apps"
       }
     }
   ]

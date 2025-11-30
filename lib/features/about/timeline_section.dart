@@ -31,7 +31,13 @@ class TimelineSection extends StatelessWidget {
                   role: 'Senior Mobile Developer',
                   company: 'WalaPlus',
                   description:
-                      'Leading development of WalaOne, WalaPlus, and Doam apps. Initiated Doam from scratch (1.2M+ users). Improved performance by 60%.',
+                      'WalaPlus is your first source for creating loyalty and happiness programs for your employees and customers.\n\n'
+                      '• Developed and maintained WalaOne, WalaPlus, and Doam apps, serving millions of active users, reaching +3M in loyalty and rewards programs with 4.5+ app store ratings.\n'
+                      '• Initiated and led the development of Doam from scratch, including architecture design, CI/CD pipelines, and coding standards, serving more than 1.2 million users.\n'
+                      '• Enhanced app performance via caching, API optimization, and code refactoring, achieving up to 60% faster load times.\n'
+                      '• Implemented unit testing (Mocktail), achieving up to 90% code coverage and reducing bug reports by 70%.\n'
+                      '• Introduced modular architecture to reduce coupling and improve maintainability.\n'
+                      '• Strengthened app security with a comprehensive threat model protecting against reverse engineering, runtime injections, and MiM attacks.',
                   isLast: false,
                 ),
                 _buildTimelineItem(
@@ -40,7 +46,10 @@ class TimelineSection extends StatelessWidget {
                   role: 'Flutter Developer',
                   company: 'WEDDnGO',
                   description:
-                      'Contributed to Egypt\'s largest wedding marketplace. Integrated vendor subscriptions and booking systems.',
+                      'Contributed to Egypt\'s largest wedding marketplace app, connecting users with service providers.\n\n'
+                      '• Helped secure funding through Shark Tank Egypt by delivering high-quality features and performance improvements.\n'
+                      '• Integrated new features including vendor subscriptions, booking systems, and in-app payments.\n'
+                      '• Optimized app performance, improving load times and responsiveness.',
                   isLast: false,
                 ),
                 _buildTimelineItem(
