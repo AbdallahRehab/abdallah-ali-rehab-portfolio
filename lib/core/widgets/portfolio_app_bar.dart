@@ -116,12 +116,10 @@ class _PortfolioAppBarState extends State<PortfolioAppBar> {
             IconButton(
               onPressed: widget.onThemeToggle,
               icon: Icon(
-                widget.isDarkMode ? Icons.light_mode : Icons.dark_mode,
+                isDark ? Icons.light_mode_outlined : Icons.dark_mode_outlined,
                 color: isDark ? AppTheme.neonCyan : AppTheme.accentCyan,
               ),
-              tooltip: widget.isDarkMode
-                  ? 'Switch to Light Mode'
-                  : 'Switch to Dark Mode',
+              tooltip: isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode',
             ),
           ],
         ),
