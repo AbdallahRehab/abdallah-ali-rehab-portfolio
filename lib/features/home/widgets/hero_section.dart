@@ -22,8 +22,8 @@ class HeroSection extends StatelessWidget {
           children: [
             // Floating Avatar/Icon Placeholder
             Container(
-                  width: 150,
-                  height: 150,
+                  width: 160,
+                  height: 160,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     gradient: LinearGradient(
@@ -31,23 +31,49 @@ class HeroSection extends StatelessWidget {
                         AppTheme.neonCyan.withOpacity(0.2),
                         AppTheme.neonPink.withOpacity(0.2),
                       ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
                     ),
                     border: Border.all(
-                      color: Colors.white.withOpacity(0.2),
+                      color: AppTheme.neonCyan.withOpacity(0.5),
                       width: 2,
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: AppTheme.neonCyan.withOpacity(0.2),
+                        color: AppTheme.neonCyan.withOpacity(0.3),
                         blurRadius: 30,
                         spreadRadius: 5,
                       ),
+                      BoxShadow(
+                        color: AppTheme.neonPink.withOpacity(0.3),
+                        blurRadius: 30,
+                        spreadRadius: -5,
+                        offset: const Offset(0, 10),
+                      ),
                     ],
                   ),
-                  child: const Icon(
-                    Icons.rocket_launch_rounded,
-                    size: 60,
-                    color: Colors.white,
+                  child: Container(
+                    margin: const EdgeInsets.all(4),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/avatar.jpg'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        gradient: LinearGradient(
+                          colors: [
+                            Colors.transparent,
+                            Colors.black.withOpacity(0.2),
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                        ),
+                      ),
+                    ),
                   ),
                 )
                 .animate(
@@ -113,7 +139,10 @@ class HeroSection extends StatelessWidget {
                   text: 'Download CV',
                   icon: Icons.download_rounded,
                   onPressed: () {
-                    launchUrl(Uri.parse('assets/cv.pdf'));
+                    launchUrl(
+                      Uri.parse('assets/cv.pdf'),
+                      mode: LaunchMode.externalApplication,
+                    );
                   },
                 ),
                 GlassButton(
