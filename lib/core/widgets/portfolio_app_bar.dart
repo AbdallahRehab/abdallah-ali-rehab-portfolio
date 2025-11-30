@@ -62,21 +62,6 @@ class _PortfolioAppBarState extends State<PortfolioAppBar> {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Row(
           children: [
-            // Logo/Name
-            Text(
-              'AR',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                foreground: Paint()
-                  ..shader = LinearGradient(
-                    colors: isDark
-                        ? [AppTheme.neonCyan, AppTheme.neonPink]
-                        : [AppTheme.accentCyan, AppTheme.accentPink],
-                  ).createShader(const Rect.fromLTWH(0, 0, 200, 70)),
-              ),
-            ),
-            const Spacer(),
             // Navigation Items
             ...List.generate(_navItems.length, (index) {
               final isActive = widget.activeIndex == index;
