@@ -10,12 +10,14 @@ class AppTheme {
   static const Color starlight = Color(0xFFEAEAEA);
   static const Color glassBorder = Color(0x33FFFFFF);
 
-  // Light theme colors
-  static const Color lightBackground = Color(0xFFF5F5F5);
+  // Light theme colors - Improved palette
+  static const Color lightBackground = Color(0xFFFAFAFA);
   static const Color lightSurface = Color(0xFFFFFFFF);
   static const Color lightText = Color(0xFF1A1A2E);
-  static const Color accentCyan = Color(0xFF00B8D4);
-  static const Color accentPink = Color(0xFFE91E63);
+  static const Color lightTextSecondary = Color(0xFF5A5A6E);
+  static const Color accentCyan = Color(0xFF0097A7);
+  static const Color accentPink = Color(0xFFD81B60);
+  static const Color lightBorder = Color(0xFFE0E0E0);
 
   // Theme-aware color getters
   static Color primaryColor(BuildContext context) {
@@ -39,7 +41,7 @@ class AppTheme {
   static Color textColorSecondary(BuildContext context) {
     return Theme.of(context).brightness == Brightness.dark
         ? Colors.white70
-        : lightText.withOpacity(0.7);
+        : lightTextSecondary;
   }
 
   static Color surfaceColor(BuildContext context) {
@@ -51,7 +53,13 @@ class AppTheme {
   static Color borderColor(BuildContext context) {
     return Theme.of(context).brightness == Brightness.dark
         ? Colors.white.withOpacity(0.1)
-        : Colors.black.withOpacity(0.1);
+        : lightBorder;
+  }
+
+  static Color backgroundColor(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark
+        ? spaceBlack
+        : lightBackground;
   }
 
   static ThemeData get darkTheme {
