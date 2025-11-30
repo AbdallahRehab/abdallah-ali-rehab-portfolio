@@ -133,6 +133,17 @@ class _ContactSectionState extends State<ContactSection> {
                         icon: Icons.send_rounded,
                         onPressed: _submitForm,
                       ),
+                      const SizedBox(height: 24),
+                      TextButton.icon(
+                        onPressed: () {
+                          launchUrl(Uri.parse('mailto:abdorehab95@gmail.com'));
+                        },
+                        icon: const Icon(Icons.email, color: Colors.white70),
+                        label: const Text(
+                          'Or email me directly at abdorehab95@gmail.com',
+                          style: TextStyle(color: Colors.white70),
+                        ),
+                      ),
                     ],
                   ),
                 ),
