@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/theme/app_theme.dart';
 import 'core/widgets/footer.dart';
@@ -15,27 +16,67 @@ import 'features/home/widgets/starfield_background.dart';
 import 'features/home/widgets/tech_stack_section.dart';
 import 'features/projects/projects_section.dart';
 
-void main() {
-  runApp(const PortfolioApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final prefs = await SharedPreferences.getInstance();
+  final isDark = prefs.getBool('isDarkMode') ?? true;
+  runApp(
+    PortfolioApp(initialThemeMode: isDark ? ThemeMode.dark : ThemeMode.light),
+  );
 }
 
-class PortfolioApp extends StatelessWidget {
-  const PortfolioApp({super.key});
+class PortfolioApp extends StatefulWidget {
+  final ThemeMode initialThemeMode;
+
+  const PortfolioApp({super.key, required this.initialThemeMode});
+
+  @override
+  State<PortfolioApp> createState() => _PortfolioAppState();
+}
+
+class _PortfolioAppState extends State<PortfolioApp> {
+  late ThemeMode _themeMode;
+
+  @override
+  void initState() {
+    super.initState();
+    _themeMode = widget.initialThemeMode;
+  }
+
+  void _toggleTheme() async {
+    setState(() {
+      _themeMode = _themeMode == ThemeMode.dark
+          ? ThemeMode.light
+          : ThemeMode.dark;
+    });
+
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isDarkMode', _themeMode == ThemeMode.dark);
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Abdallah Ali Rehab | Senior Mobile Developer',
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.darkTheme,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: _themeMode,
       builder: (context, child) => ResponsiveLayout(child: child!),
-      home: const HomePage(),
+      home: HomePage(onThemeToggle: _toggleTheme, themeMode: _themeMode),
     );
   }
 }
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final VoidCallback onThemeToggle;
+  final ThemeMode themeMode;
+
+  const HomePage({
+    super.key,
+    required this.onThemeToggle,
+    required this.themeMode,
+  });
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -149,6 +190,8 @@ class _HomePageState extends State<HomePage> {
               PortfolioAppBar(
                 onNavigate: _scrollToSection,
                 activeIndex: _activeSection,
+                onThemeToggle: widget.onThemeToggle,
+                isDarkMode: widget.themeMode == ThemeMode.dark,
               ),
               Expanded(
                 child: SingleChildScrollView(

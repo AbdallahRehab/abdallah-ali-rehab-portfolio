@@ -4,11 +4,15 @@ import '../theme/app_theme.dart';
 class PortfolioAppBar extends StatefulWidget {
   final Function(int) onNavigate;
   final int activeIndex;
+  final VoidCallback onThemeToggle;
+  final bool isDarkMode;
 
   const PortfolioAppBar({
     super.key,
     required this.onNavigate,
     required this.activeIndex,
+    required this.onThemeToggle,
+    required this.isDarkMode,
   });
 
   @override
@@ -30,19 +34,25 @@ class _PortfolioAppBarState extends State<PortfolioAppBar> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       height: 70,
       decoration: BoxDecoration(
-        color: AppTheme.deepSpace.withOpacity(0.95),
+        color: isDark
+            ? AppTheme.deepSpace.withOpacity(0.95)
+            : AppTheme.lightSurface.withOpacity(0.95),
         border: Border(
           bottom: BorderSide(
-            color: AppTheme.neonCyan.withOpacity(0.2),
+            color: isDark
+                ? AppTheme.neonCyan.withOpacity(0.2)
+                : AppTheme.accentCyan.withOpacity(0.2),
             width: 1,
           ),
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.3),
+            color: Colors.black.withOpacity(isDark ? 0.3 : 0.1),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -60,7 +70,9 @@ class _PortfolioAppBarState extends State<PortfolioAppBar> {
                 fontWeight: FontWeight.bold,
                 foreground: Paint()
                   ..shader = LinearGradient(
-                    colors: [AppTheme.neonCyan, AppTheme.neonPink],
+                    colors: isDark
+                        ? [AppTheme.neonCyan, AppTheme.neonPink]
+                        : [AppTheme.accentCyan, AppTheme.accentPink],
                   ).createShader(const Rect.fromLTWH(0, 0, 200, 70)),
               ),
             ),
@@ -86,7 +98,9 @@ class _PortfolioAppBarState extends State<PortfolioAppBar> {
                       border: Border(
                         bottom: BorderSide(
                           color: isActive
-                              ? AppTheme.neonCyan
+                              ? (isDark
+                                    ? AppTheme.neonCyan
+                                    : AppTheme.accentCyan)
                               : Colors.transparent,
                           width: 2,
                         ),
@@ -96,10 +110,12 @@ class _PortfolioAppBarState extends State<PortfolioAppBar> {
                       _navItems[index],
                       style: TextStyle(
                         color: isActive
-                            ? AppTheme.neonCyan
+                            ? (isDark ? AppTheme.neonCyan : AppTheme.accentCyan)
                             : isHovered
-                            ? AppTheme.neonPink
-                            : Colors.white70,
+                            ? (isDark ? AppTheme.neonPink : AppTheme.accentPink)
+                            : (isDark
+                                  ? Colors.white70
+                                  : AppTheme.lightText.withOpacity(0.7)),
                         fontSize: 16,
                         fontWeight: isActive
                             ? FontWeight.w600
@@ -110,6 +126,18 @@ class _PortfolioAppBarState extends State<PortfolioAppBar> {
                 ),
               );
             }),
+            const SizedBox(width: 16),
+            // Theme Toggle Button
+            IconButton(
+              onPressed: widget.onThemeToggle,
+              icon: Icon(
+                widget.isDarkMode ? Icons.light_mode : Icons.dark_mode,
+                color: isDark ? AppTheme.neonCyan : AppTheme.accentCyan,
+              ),
+              tooltip: widget.isDarkMode
+                  ? 'Switch to Light Mode'
+                  : 'Switch to Dark Mode',
+            ),
           ],
         ),
       ),
